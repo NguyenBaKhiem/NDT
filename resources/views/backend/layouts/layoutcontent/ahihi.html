@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+  .bg-primary {
+    background: #5873fe;
+    color: #ffffff;
+    fill: #5873fe;
+  }
+  .bg-success {
+    background: #28a745;
+    color: #ffffff;
+    fill: #28a745;
+  }
+  .bg-info {
+    background: #03a9f4;
+    color: #ffffff;
+    fill: #03a9f4;
+  }
+  .bg-danger {
+    background: #dc3545;
+    color: #ffffff;
+    fill: #dc3545;
+  }
+  .bg-warning {
+    background: #e7b63a;
+    color: #ffffff;
+    fill: #e7b63a;
+  }
+  .bg-pink {
+    background: #e6a1f2;
+    color: #ffffff;
+    fill: #e6a1f2;
+  }
+  .bg-dark {
+    background: #545454;
+    color: #ffffff;
+    fill: #545454;
+  }
+  .bg-transparent {
+    background: transparent;
+    color: #252525;
+  }
+  .bg-ash {
+    background: #f5f5f5;
+  }
+  .bg-white {
+    background: #ffffff;
+  }
+  tr.tr-hover:hover {
+    background-color: #28a745!important;
+    cursor: pointer;
+  }
+  /* đoạn mã này thêm màu vào hàng chẵn vè lẻ */
+  tbody>tr:nth-child(even){background-color: #FFF}
+  tbody>tr:nth-child(odd)  {background: #CCC}
+</style>
+<table class="table-responsive table-bordered table-condensed">
+  <thead>
+    <tr class="bg-primary">
+      <th><input type="checkbox" id="th-head"></th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <tr align="center" id="1" class="tr-hover">
+      <td><input type="checkbox" id="1"></td>
+      <td>Hoàng Thị Thảo</td>
+      <td>23/6/1990</td>
+      <td>Nữ</td>
+    </tr>   
+    <tr align="center" id="2" class="tr-hover">
+      <td><input type="checkbox" id="2"></td>
+      <td>Hoàng Ngô Mạnh Quân</td>
+      <td>14/4/1992</td>
+      <td>Nam</td>
+    </tr>
+    <tr align="center" id="3" class="tr-hover">
+      <td><input type="checkbox" id="3"></td>
+      <td>Nguyễn Thanh Tùng</td>
+      <td>27/9/1991</td>
+      <td>Nam</td>
+    </tr>
+    <tr align="center" id="4" class="tr-hover">
+      <td><input type="checkbox" id="4"></td>
+      <td>Hoàng Thị Ngân</td>
+      <td>12/12/1992</td>
+      <td>Nữ</td>
+    </tr>
+  </tbody>
+  <tfoot class="bg-warning">
+    <tr align="center">
+      <th><input type="checkbox" id="th-foot" ></th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+    </tr>
+  </tfoot>
+</table>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+<script>
+  $("#th-head, #th-foot").change(function() {
+    if($(this).is(':checked')) {
+      $("input:checkbox").prop('checked', $(this).prop("checked"));
+    }
+    else {
+      $("input:checkbox").prop('checked', true);
+    }
+  });
+  // $("input:checkbox").change(function() {
+  //     if($("input:checkbox").is(':checked')) {
+  //   let id = $(this).attr('id');
+  //   $("tr").val(id).css({
+  //     'background-color': '#d2d114',
+  //   });
+  // }
+  // });
+  $("tr").click(function() {
+    let id = $(this).attr('id');
+    $(this).css({
+      'background-color': '#d2d114',
+    });
+    $(this).find("input").prop('checked', true);
+  });
+</script>
+</html>
